@@ -15,23 +15,25 @@ function link_bins {
   done
 }
 
-function link_dotfiles {
+function link_files {
+  mkdir -p $out/files
+
   for d in $dotfiles; do
     file_path=${d%=*}
     store_path=${d#*=}
 
     if [[ $file_path == *"/"* ]]; then
-      mkdir -p $(dirname "$out/$file_path")
+      mkdir -p $(dirname "$out/files/$file_path")
     fi
 
-    ln -fs $store_path "$out/$file_path"
+    ln -fs $store_path "$out/files/$file_path"
   done
 }
 
 export -f link_bins \
-          link_dotfiles
+          link_files
 
 function build {
   link_bins
-  link_dotfiles
+  link_files
 }
