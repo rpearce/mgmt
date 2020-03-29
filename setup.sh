@@ -1,3 +1,5 @@
+set -e
+
 unset PATH
 for p in $baseInputs $buildInputs; do
   if [ -d $p/bin ]; then
