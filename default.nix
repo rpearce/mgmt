@@ -12,12 +12,12 @@ pkgs: attrs:
     };
 
     combinedAttrs = (defaultAttrs // attrs // (with pkgs.stdenv.lib; {
-      version = "0.1.0.0";
-      description = "⚙️  Use nix to manage your CLI tools, configuration dotfiles, and more";
-      homepage = "https://github.com/rpearce/mgmt";
-      license = licenses.bsd3.fullName;
+      #version = "0.1.0.0";
+      #description = "⚙️  Use nix to manage your CLI tools, configuration dotfiles, and more";
+      #homepage = "https://github.com/rpearce/mgmt";
+      #license = licenses.bsd3.fullName;
       #maintainers = with maintainers; [ rpearce ];
-      platforms = platforms.unix;
+      #platforms = platforms.unix;
     }));
 
     finalAttrs = (combinedAttrs // {
