@@ -3,10 +3,10 @@ pkgs: attrs:
   let
     defaultAttrs = {
       args = [ ./builder.sh ];
-      baseInputs = [ coreutils findutils which ];
-      buildInputs = [];
+      baseInputs = [ coreutils findutils ];
+      buildInputs = [ ];
       builder = "${bash}/bin/bash";
-      dotfiles = {};
+      dotfiles = { };
       setup = ./setup.sh;
       system = builtins.currentSystem;
     };
@@ -20,6 +20,7 @@ pkgs: attrs:
           name = lib.strings.sanitizeDerivationName "mgmt_${name}";
         })
         combinedAttrs.dotfiles;
+      version = "0.1.0.0"; # @TODO
     });
   in
     derivation finalAttrs

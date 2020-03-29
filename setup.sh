@@ -1,6 +1,8 @@
 unset PATH
 for p in $baseInputs $buildInputs; do
-  export PATH=$p/bin${PATH:+:}$PATH
+  if [ -d $p/bin ]; then
+    export PATH="$p/bin${PATH:+:}$PATH"
+  fi
 done
 
 function link_bins {
